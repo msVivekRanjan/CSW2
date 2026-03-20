@@ -1,0 +1,89 @@
+/* Reset + base styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+    background: #f9fafb;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Center content like a real website */
+#content {
+    max-width: 800px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+/* Headings */
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #111827;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #1f2937;
+}
+
+/* Paragraphs */
+p {
+    margin-bottom: 15px;
+    color: #4b5563;
+}
+
+/* Links (important for pagination + posts) */
+a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Pagination styling */
+.pagination {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.pagination a {
+    display: inline-block;
+    margin: 0 8px;
+    padding: 8px 14px;
+    border-radius: 8px;
+    background: #f3f4f6;
+    color: #111827;
+    transition: all 0.2s ease;
+}
+
+.pagination a:hover {
+    background: #2563eb;
+    color: #fff;
+}
+
+.pagination .current {
+    font-weight: bold;
+    margin: 0 10px;
+    color: #374151;
+}
+
+/* Optional sidebar styling (if you re-enable it) */
+#sidebar {
+    background: #ffffff;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
