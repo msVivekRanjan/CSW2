@@ -42,7 +42,7 @@ p {
 
 /* Links (important for pagination + posts) */
 a {
-    /* color: #2563eb; */
+    color: #2563eb;
     text-decoration: none;
     font-weight: 500;
 }
