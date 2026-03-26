@@ -1,0 +1,17 @@
+
+<h2>Add a new comment</h2>
+<style>
+.left{float:left;width:48%;margin-right:4%}
+.left:nth-child(2){margin-right:0}
+.clear{clear:both}
+input,textarea{width:100%;padding:6px;border:1px solid #ccc;border-radius:4px}
+input[type=submit]{background:#007BFF;color:#fff;border:none;padding:6px 12px;border-radius:4px;cursor:pointer}
+</style>
+
+<form action="{% url 'blog:post_comment' post.id %}" method="post">
+<div class="left">{{form.name.as_field_group}}</div>
+<div class="left">{{form.email.as_field_group}}</div>
+<div class="clear">{{form.body.as_field_group}}</div>
+    {% csrf_token %}
+    <p><input type="submit" value="Add comment"></p>
+</form>
