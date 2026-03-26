@@ -1,0 +1,14 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Environment files
+.env
+
+# Optional: ignore virtual environments
+venv/
+.venv/
+
+# Optional: OS files
+.DS_Store
+Thumbs.db
