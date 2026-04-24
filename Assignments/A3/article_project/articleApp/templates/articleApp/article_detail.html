@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ article.title }}</title>
+</head>
+<body>
+    <h1>{{ article.title }}</h1>
+    <p>{{ article.publish }}</p>
+    <p>{{ article.content }}</p>
+
+    <p><a href="{% url 'articleApp:article_share' article.id %}">Share this article</a></p>
+    <a href="{% url 'articleApp:article_list' %}">Back to articles</a>
+
+    <hr>
+    <h3>{{ comments.count }} comment{{ comments.count|pluralize }}</h3>
+    {% for comment in comments %}
+        <div>
+            <p>By {{ comment.name }} on {{ comment.created }}</p>
+            <p>{{ comment.body }}</p>
+        </div>
+    {% empty %}
+        <p>No comments yet. Be the first to comment!</p>
+    {% endfor %}
+
+    <hr>
+    <h3>Add a comment</h3>
+    <form method="post">
+        {% csrf_token %}
+        <p><label>Name:</label><br>{{ form.name }}</p>
+        <p><label>Email:</label><br>{{ form.email }}</p>
+        <p><label>Comment:</label><br>{{ form.body }}</p>
+        <input type="submit" value="Add Comment">
+    </form>
+</body>
+</html>

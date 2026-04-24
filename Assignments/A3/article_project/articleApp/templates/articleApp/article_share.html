@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Share Article</title>
+</head>
+<body>
+    {% if sent %}
+        <h2>Article shared successfully!</h2>
+        <p>You shared "{{ article.title }}" via email.</p>
+        <a href="{% url 'articleApp:article_detail' article.id %}">Back to article</a>
+    {% else %}
+        <h2>Share "{{ article.title }}" by email</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Send Email">
+        </form>
+    {% endif %}
+</body>
+</html>
