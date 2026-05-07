@@ -1,0 +1,29 @@
+{% load blog_tags %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}My Blog{% endblock %}</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        h1, h2 { color: #333; }
+        a { color: #0066cc; }
+        .sidebar { float: right; width: 250px; }
+        .content { margin-right: 270px; }
+    </style>
+</head>
+<body>
+    <h1><a href="/">My Blog</a></h1>
+    <hr>
+    <div class="sidebar">
+        <p>Total posts: {% total_posts %}</p>
+        <h3>Latest Posts</h3>
+        {% show_latest_posts %}
+        <h3>Most Commented Posts</h3>
+        {% show_most_commented_posts %}
+    </div>
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

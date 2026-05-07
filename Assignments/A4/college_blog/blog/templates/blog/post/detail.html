@@ -1,0 +1,29 @@
+{% extends "blog/base.html" %}
+{% load blog_filters %}
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+    <h2>{{ post.title }}</h2>
+    <p>By {{ post.author }} on {{ post.publish }}</p>
+    {{ post.body|markdown }}
+    {% if post.tags.all %}
+        <p>
+            Tags:
+            {% for tag in post.tags.all %}
+                <a href="{% url 'blog:post_list_by_tag' tag.slug %}">{{ tag.name }}</a>
+                {% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </p>
+    {% endif %}
+    <br>
+    <hr>
+    <h3>Similar Posts</h3>
+    {% for similar_post in similar_posts %}
+        <p>
+            <a href="{{ similar_post.get_absolute_url }}">{{ similar_post.title }}</a>
+        </p>
+    {% empty %}
+        <p>No similar posts found.</p>
+    {% endfor %}
+    <a href="/">Back to blog list</a>
+{% endblock %}
